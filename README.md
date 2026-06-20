@@ -115,6 +115,27 @@ The application provides:
 * Deployment with CI/CD pipelines
 * Real-time monitoring dashboard
 
+## Deployment Note
+
+Initially, the application was deployed on Streamlit Community Cloud. However, deployment issues were encountered due to TensorFlow compatibility with the default Python environment provided by Streamlit Cloud. The platform was provisioning Python 3.14, while the TensorFlow version required for this project did not have compatible wheels available for that Python version, resulting in dependency installation failures.
+
+To ensure stable deployment and compatibility with TensorFlow, the application was migrated to Render, where the Python runtime version could be explicitly configured. Render provided greater flexibility for managing dependencies and successfully supported the deployment of the trained ANN model along with the required preprocessing artifacts (encoders and scaler files).
+
+### Challenges Faced
+
+* TensorFlow installation failures due to Python version incompatibility.
+* Dependency resolution errors during Streamlit Cloud deployment.
+* Runtime configuration issues despite specifying Python version files.
+* Model artifact management and deployment configuration.
+
+### Solution
+
+* Migrated deployment from Streamlit Community Cloud to Render.
+* Configured Python 3.11 environment for TensorFlow compatibility.
+* Included model artifacts (`.h5`, encoder, and scaler files) in deployment.
+* Successfully deployed the Streamlit application using Render Web Services.
+
+
 ## Author
 
 Janvi Gaba
