@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+.ipynb_checkpoints/
+
+*.pkl
+*.pyc
+
+logs/
+tensorboard_logs/
+
+.DS_Store
